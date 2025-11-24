@@ -1,214 +1,188 @@
-# AI Voice Agents Challenge - Starter Repository
+🎙️ Day-3-of-Murf-Falcon-AI
 
-Welcome to the **AI Voice Agents Challenge** by [murf.ai](https://murf.ai)!
+💚 Health & Wellness Voice Companion
 
-## About the Challenge
-
-We just launched **Murf Falcon** – the consistently fastest TTS API, and you're going to be among the first to test it out in ways never thought before!
-
-**Build 10 AI Voice Agents over the course of 10 Days** along with help from our devs and the community champs, and win rewards!
-
-### How It Works
-
-- One task to be provided everyday along with a GitHub repo for reference
-- Build a voice agent with specific personas and skills
-- Post on GitHub and share with the world on LinkedIn!
-
-## Repository Structure
-
-This is a **monorepo** that contains both the backend and frontend for building voice agent applications. It's designed to be your starting point for each day's challenge task.
-
-```
-falcon-tdova-nov25-livekit/
-├── backend/          # LiveKit Agents backend with Murf Falcon TTS
-├── frontend/         # React/Next.js frontend for voice interaction
-├── start_app.sh      # Convenience script to start all services
-└── README.md         # This file
-```
-
-### Backend
-
-The backend is based on [LiveKit's agent-starter-python](https://github.com/livekit-examples/agent-starter-python) with modifications to integrate **Murf Falcon TTS** for ultra-fast, high-quality voice synthesis.
-
-**Features:**
-
-- Complete voice AI agent framework using LiveKit Agents
-- Murf Falcon TTS integration for fastest text-to-speech
-- LiveKit Turn Detector for contextually-aware speaker detection
-- Background voice cancellation
-- Integrated metrics and logging
-- Complete test suite with evaluation framework
-- Production-ready Dockerfile
-
-[→ Backend Documentation](./backend/README.md)
-
-### Frontend
-
-The frontend is based on [LiveKit's agent-starter-react](https://github.com/livekit-examples/agent-starter-react), providing a modern, beautiful UI for interacting with your voice agents.
-
-**Features:**
-
-- Real-time voice interaction with LiveKit Agents
-- Camera video streaming support
-- Screen sharing capabilities
-- Audio visualization and level monitoring
-- Light/dark theme switching
-- Highly customizable branding and UI
-
-[→ Frontend Documentation](./frontend/README.md)
-
-## Quick Start
-
-### Prerequisites
-
-Make sure you have the following installed:
-
-- Python 3.9+ with [uv](https://docs.astral.sh/uv/) package manager
-- Node.js 18+ with pnpm
-- [LiveKit CLI](https://docs.livekit.io/home/cli/cli-setup) (optional but recommended)
-- [LiveKit Server](https://docs.livekit.io/home/self-hosting/local/) for local development
-
-### 1. Clone the Repository
-
-```bash
-git clone <your-repo-url>
-cd falcon-tdova-nov25-livekit
-```
-
-### 2. Backend Setup
-
-```bash
-cd backend
-
-# Install dependencies
-uv sync
-
-# Copy environment file and configure
-cp .env.example .env.local
-
-# Edit .env.local with your credentials:
-# - LIVEKIT_URL
-# - LIVEKIT_API_KEY
-# - LIVEKIT_API_SECRET
-# - MURF_API_KEY (for Falcon TTS)
-# - GOOGLE_API_KEY (for Gemini LLM)
-# - DEEPGRAM_API_KEY (for Deepgram STT)
-
-# Download required models
-uv run python src/agent.py download-files
-```
-
-For LiveKit Cloud users, you can automatically populate credentials:
-
-```bash
-lk cloud auth
-lk app env -w -d .env.local
-```
-
-### 3. Frontend Setup
-
-```bash
-cd frontend
-
-# Install dependencies
-pnpm install
-
-# Copy environment file and configure
-cp .env.example .env.local
-
-# Edit .env.local with the same LiveKit credentials
-```
-
-### 4. Run the Application
-
-#### Install livekit server
-
-```bash
-brew install livekit
-```
-
-You have two options:
-
-#### Option A: Use the convenience script (runs everything)
-
-```bash
-# From the root directory
-chmod +x start_app.sh
-./start_app.sh
-```
-
-This will start:
-
-- LiveKit Server (in dev mode)
-- Backend agent (listening for connections)
-- Frontend app (at http://localhost:3000)
-
-#### Option B: Run services individually
-
-```bash
-# Terminal 1 - LiveKit Server
-livekit-server --dev
-
-# Terminal 2 - Backend Agent
-cd backend
-uv run python src/agent.py dev
-
-# Terminal 3 - Frontend
-cd frontend
-pnpm dev
-```
-
-Then open http://localhost:3000 in your browser!
-
-## Daily Challenge Tasks
-
-Each day, you'll receive a new task that builds upon your voice agent. The tasks will help you:
-
-- Implement different personas and conversation styles
-- Add custom tools and capabilities
-- Integrate with external APIs
-- Build domain-specific agents (customer service, tutoring, etc.)
-- Optimize performance and user experience
-
-**Stay tuned for daily task announcements!**
-
-## Documentation & Resources
-
-- [Murf Falcon TTS Documentation](https://murf.ai/api/docs/text-to-speech/streaming)
-- [LiveKit Agents Documentation](https://docs.livekit.io/agents)
-- [Original Backend Template](https://github.com/livekit-examples/agent-starter-python)
-- [Original Frontend Template](https://github.com/livekit-examples/agent-starter-react)
-
-## Testing
-
-The backend includes a comprehensive test suite:
-
-```bash
-cd backend
-uv run pytest
-```
-
-Learn more about testing voice agents in the [LiveKit testing documentation](https://docs.livekit.io/agents/build/testing/).
-
-## Contributing & Community
-
-This is a challenge repository, but we encourage collaboration and knowledge sharing!
-
-- Share your solutions and learnings on GitHub
-- Post about your progress on LinkedIn
-- Join the [LiveKit Community Slack](https://livekit.io/join-slack)
-- Connect with other challenge participants
-
-## License
-
-This project is based on MIT-licensed templates from LiveKit and includes integration with Murf Falcon. See individual LICENSE files in backend and frontend directories for details.
-
-## Have Fun!
-
-Remember, the goal is to learn, experiment, and build amazing voice AI agents. Don't hesitate to be creative and push the boundaries of what's possible with Murf Falcon and LiveKit!
-
-Good luck with the challenge!
+Welcome to Day 3 of the **10 Days of Voice Agents 2025 🚀**!
+Today’s mission: Transform your voice agent into a **supportive, grounded daily wellness companion** that checks in on mood, energy, goals — and remembers past conversations!
 
 ---
 
-Built for the AI Voice Agents Challenge by murf.ai
+✅ Day 3 Objective
+
+Build a real-time voice companion that:
+
+✅ Conducts short daily check-ins via voice
+✅ Asks about mood, energy, stress & intentions
+✅ Offers simple, realistic reflections (non-medical)
+✅ Saves each check-in to a JSON log
+✅ References past check-ins during future sessions
+
+This isn’t a doctor or therapist — it’s a **friendly daily wellness buddy**.
+
+---
+
+🎭 Persona — Supportive Wellness Companion
+
+Your agent should:
+
+🗣️ Start the conversation gently
+❓ Ask about feelings & energy level
+🎯 Explore 1–3 goals for the day
+💡 Offer small, practical suggestions
+🔁 Recap the check-in and confirm
+
+Tone example:
+
+“Thanks for sharing. On a scale of low, medium, or high — how’s your energy today?”
+
+The agent **must avoid** medical advice, diagnoses, or treatment guidance.
+
+---
+
+📥 Conversation Flow
+
+1️⃣ Ask About Mood & Energy
+
+Examples:
+
+* “How are you feeling today?”
+* “What’s your energy like — low, medium, or high?”
+* “Anything stressing you out right now?”
+
+2️⃣ Ask About Intentions / Goals
+
+Simple, achievable objectives:
+
+* “What are 1–3 things you want to get done today?”
+* “Is there anything you’d like to do for yourself — rest, exercise, hobbies?”
+
+3️⃣ Offer Grounded Reflections
+
+Suggestions should be:
+
+✅ Small
+✅ Actionable
+✅ Non-medical
+
+Examples:
+
+* Break big goals into smaller steps
+* Take short breaks through the day
+* Try a quick 5-minute walk
+
+4️⃣ Recap & Confirm
+
+* Mood summary
+* Energy level
+* Top 1–3 goals
+
+“Does this sound right?”
+
+If user confirms → ✅ Save the check-in.
+
+---
+
+💾 JSON Persistence
+
+Each check-in is saved to:
+
+```
+/backend/wellness_log.json
+```
+
+Example entry:
+
+```json
+{
+  "date": "2025-01-24",
+  "timestamp": "2025-01-24T09:42:11Z",
+  "mood": "Tired but okay",
+  "energy": "Low",
+  "objectives": ["Finish assignment", "Take a walk"],
+  "summary": "Low energy, planning small goals for the day."
+}
+```
+
+✅ One file
+✅ Multiple entries
+✅ Human-readable format
+
+---
+
+🔁 Using Past Data
+
+When the next session starts, the agent should:
+
+✅ Read the last entry
+✅ Reference it once gently
+
+Example:
+
+“Last time you mentioned low energy. How does today compare?”
+
+This gives the agent a sense of **continuity and memory**.
+
+---
+
+📍 Where to Make Changes
+
+✅ Backend
+
+`backend/src/agent.py`
+
+You will:
+
+✅ Update persona prompt
+✅ Add JSON read/write helpers
+✅ Implement the save tool
+✅ Load previous check-ins
+✅ Reference past data in the prompt
+
+✅ The voice pipeline stays the same:
+User 🎤 → Deepgram STT → Gemini LLM → Murf TTS → Audio 🔊
+
+✨ Silero VAD manages turn-taking
+
+✅ Frontend
+
+No major UI changes required (optional summary display if desired)
+
+---
+
+🔧 Suggested Implementation Steps
+
+✅ Step 1 — Add `wellness_log.json` helpers
+✅ Step 2 — Define `WellnessEntry` model
+✅ Step 3 — Create save tool
+✅ Step 4 — Update system prompt
+✅ Step 5 — Load + reference previous entry
+✅ Step 6 — Test two sessions (to confirm memory)
+
+---
+
+🧪 How to Test
+
+Ask:
+
+“How am I feeling today? Hmm… maybe a little low energy.”
+
+The agent should follow with:
+
+“What’s one or two things you’d like to get done today?”
+
+After the recap and confirmation → ✅ JSON entry saved.
+
+Restart → Agent references the past.
+
+---
+
+🚀 Day 3 of #10DaysofAIVoiceAgents — I Built a Wellness Companion!
+
+💚 My agent can now:
+✅ Do guided voice check-ins
+✅ Ask about mood, energy & goals
+✅ Offer grounded micro-advice
+✅ Save each session as JSON
+✅ Remember past check-ins
+
+#MurfAI #VoiceAI #LiveKit #Gemini #BuildInPublic #AIAgents #Wellness #TTS #STT #GenAI
